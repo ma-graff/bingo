@@ -12,7 +12,7 @@ def generate_bingo_card(items):
     random.shuffle(items)
     
     # Insert 'FREE' in the middle of the shuffled items
-    items.insert(12, 'Gratuit!')
+    items.insert(12, 'Free!')
     
     # Split items into a 5x5 grid
     card = [items[i:i+5] for i in range(0, 25, 5)]
@@ -47,7 +47,7 @@ def custom_word_wrap(text, style, max_width):
 
     return "<br/>".join(lines)
 
-def create_bingo_pdf(cards, filename="bingo_cards.pdf"):
+def create_bingo_pdf(cards, filename="./bingo_cards.pdf"):
     doc = SimpleDocTemplate(filename, pagesize=letter)
     elements = []
 
@@ -116,7 +116,7 @@ if __name__ == "__main__":
         "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova",
         "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)", "Namibia", "Nauru",
         "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Macedonia", "Norway",
-        "Oman", "Pakistan", "Palau", "Palestinian State*", "Panama", "Papua New Guinea", "Paraguay", "Peru",
+        "Oman", "Pakistan", "Palau", "Palestinian State", "Panama", "Papua New Guinea", "Paraguay", "Peru",
         "Philippines", "Poland", "Portugal", "Qatar", "Romania", "Russia", "Rwanda", "Saint Kitts and Nevis",
         "Saint Lucia", "Saint Vincent and The Grenadines", "Samoa", "San Marino", "Sao Tome and Principe",
         "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia",
@@ -127,6 +127,6 @@ if __name__ == "__main__":
         "Vatican City", "Venezuela", "Vietnam", "Yemen", "Zambia", "Zimbabwe"
     ]
 
-    num_cards = 30  # Number of bingo cards to generate
+    num_cards = 1  # Number of bingo cards to generate
     cards = [generate_bingo_card(items[:]) for _ in range(num_cards)]
     create_bingo_pdf(cards)
